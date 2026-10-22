@@ -27,32 +27,32 @@ async function exactFile(path) {
 
 let categories = null;
 try {
-  const filename = join(root, 'works', 'categories.js');
+  const filename = join(root, 'archive', 'categories.js');
   await exactFile(filename);
   const config = vm.createContext({});
   config.window = config;
   vm.runInContext(await readFile(filename, 'utf8'), config, { filename, timeout: 1000 });
   categories = shared.portfolioData.validateCategories(config.portfolioCategories);
 } catch (error) {
-  errors.push('works/categories.js: ' + error.message);
+  errors.push('archive/categories.js: ' + error.message);
 }
 
 let folders = [];
 try {
-  const filename = join(root, 'works', 'index.js');
+  const filename = join(root, 'archive', 'index.js');
   const manifest = vm.createContext({});
   manifest.window = manifest;
   vm.runInContext(await readFile(filename, 'utf8'), manifest, { filename, timeout: 1000 });
   folders = shared.portfolioData.validateFolders(manifest.portfolioWorkFolders);
 } catch (error) {
-  errors.push('works/index.js: ' + error.message);
+  errors.push('archive/index.js: ' + error.message);
 }
 
 let checked = 0;
 const assets = new Set();
 let remoteCount = 0;
 for (const id of (categories === null ? [] : folders)) {
-  const filename = join(root, 'works', id, 'work.js');
+  const filename = join(root, 'archive', id, 'work.js');
   try {
     await exactFile(filename);
     let calls = 0;
@@ -81,7 +81,7 @@ for (const id of (categories === null ? [] : folders)) {
     }
     checked += 1;
   } catch (error) {
-    errors.push('works/' + id + '/work.js: ' + error.message);
+    errors.push('archive/' + id + '/work.js: ' + error.message);
   }
 }
 for (const path of assets) {

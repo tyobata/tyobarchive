@@ -3,7 +3,7 @@
   const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
   function validateFolders(value) {
-    if (!Array.isArray(value)) throw new Error('works/index.js に作品フォルダーの配列を設定してください。');
+    if (!Array.isArray(value)) throw new Error('archive/index.js に作品フォルダーの配列を設定してください。');
     const seen = new Set();
     return value.map(id => {
       if (typeof id !== 'string' || !slug.test(id)) throw new Error('フォルダー名は半角小文字・数字・ハイフンで指定してください: ' + String(id));
@@ -44,7 +44,7 @@
     const title = text('title');
     if (!title) throw new Error('title（作品名）を入力してください。');
     const category = categories.find(item => item.id === value.category);
-    if (!category) throw new Error('category「' + String(value.category) + '」は未登録です。works/categories.js のIDを指定してください。');
+    if (!category) throw new Error('category「' + String(value.category) + '」は未登録です。archive/categories.js のIDを指定してください。');
     if (value.thumbnailFit !== undefined && !['cover', 'contain'].includes(value.thumbnailFit)) throw new Error('thumbnailFit は cover または contain にしてください。');
     if (value.year !== undefined && !['string', 'number'].includes(typeof value.year)) throw new Error('year は文字列または数値にしてください。');
     const image = asset('image');

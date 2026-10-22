@@ -11,7 +11,7 @@ tyobarchive/
 ├─ index.html                  一覧・About・関連サイト
 ├─ work.html                   作品詳細の共通レイアウト
 ├─ styles.css                  色・文字・レイアウト
-├─ works/
+├─ archive/
 │  ├─ index.js                 掲載するフォルダー名と表示順
 │  ├─ categories.js            カテゴリのID・表示名・並び順
 │  ├─ _template/               新しい作品を作るときのコピー元
@@ -47,10 +47,10 @@ tyobarchive/
 
 ## カテゴリを追加・変更する
 
-カテゴリは `works/categories.js` でまとめて管理します。
+カテゴリは `archive/categories.js` でまとめて管理します。
 たとえば「Animation」を追加する場合は、次の2か所を編集します。既存のカテゴリ行を残して追加してください。
 
-1. `works/categories.js` の配列にカテゴリを追加します。
+1. `archive/categories.js` の配列にカテゴリを追加します。
 
 ```js
 window.portfolioCategories = [
@@ -91,16 +91,16 @@ IDは半角英小文字・数字を使い、単語の区切りにハイフンを
 
 ## 新しい作品を追加する
 
-1. `works/_template/` を `works/` 内へコピーします。
+1. `archive/_template/` を `archive/` 内へコピーします。
 2. コピー先を `my-new-work` などに改名します。**半角小文字・数字・ハイフン**を使い、ほかの作品と重複させないでください。
 3. 画像・動画をそのフォルダーへ入れます。
-4. フォルダー内の `work.js` で作品名・カテゴリ・短い概要・素材ファイル名を編集します。`category` は `works/categories.js` に登録したIDを指定します。
+4. フォルダー内の `work.js` で作品名・カテゴリ・短い概要・素材ファイル名を編集します。`category` は `archive/categories.js` に登録したIDを指定します。
 5. `content.md` に詳しい本文を書きます。本文が不要なら `work.js` の `content` 行を削除します。
-6. `works/index.js` の配列へフォルダー名を1行追加します。
+6. `archive/index.js` の配列へフォルダー名を1行追加します。
 7. `node scripts/preview.mjs` でローカルサーバーを起動し、[プレビュー](http://127.0.0.1:4173/)で一覧・詳細を確認します。
 
 ```js
-// works/index.js — 上から順に表示されます。
+// archive/index.js — 上から順に表示されます。
 window.portfolioWorkFolders = [
   'my-new-work',
   'stillness',
@@ -109,18 +109,18 @@ window.portfolioWorkFolders = [
 ];
 ```
 
-フォルダーを置くだけでは掲載されません。`works/index.js` への追加が必要です。
+フォルダーを置くだけでは掲載されません。`archive/index.js` への追加が必要です。
 `_template` はコピー用なので掲載リストへ入れません。
 
 ### 写真作品の work.js
 
 素材名は**その作品フォルダーからの相対パス**です。
-`works/my-new-work/` などの接頭辞を付ける必要はありません。
+`archive/my-new-work/` などの接頭辞を付ける必要はありません。
 
 ```js
 window.registerPortfolioWork({
   title: '光の記録',
-  category: 'photo', // works/categories.js に登録したID
+  category: 'photo', // archive/categories.js に登録したID
   // label: 'Landscape', // 詳細ページだけ別名にする場合
   year: '2026',
   thumbnail: 'thumbnail.jpg',
@@ -173,7 +173,7 @@ youtube: 'https://www.youtube.com/watch?v=M7lc1UVf-VE',
 長い文章・追加画像・リンクなどは、同じ作品フォルダーの `content.md` に書きます。
 `content: 'content.md'` を設定した作品だけ本文を読み込みます。ファイル名は変更できます。
 
-ひな形の `works/_template/content.md` と、写真作品の `works/stillness/content.md` が記入例です。
+ひな形の `archive/_template/content.md` と、写真作品の `archive/stillness/content.md` が記入例です。
 ほかの同梱作品は `content` 未指定のため、従来どおり概要とメディアを表示します。
 
 ```markdown
@@ -220,12 +220,12 @@ Markdown本文はHTTPのローカルプレビューと公開後のGitHub Pages�
 | --- | --- |
 | 作品名・短い概要・年度を変更 | その作品の `work.js` |
 | 作品のカテゴリを変更 | その作品の `work.js` の `category` |
-| カテゴリの追加・表示名・並び順を変更 | `works/categories.js` |
+| カテゴリの追加・表示名・並び順を変更 | `archive/categories.js` |
 | 詳しい本文を変更 | その作品の `content.md`（ファイル名は `work.js` の `content` で指定） |
 | 画像・動画を差し替え | その作品フォルダー。同名ならファイルの置き換えだけで反映 |
 | 素材ファイル名を変更 | ファイル名と `work.js`・`content.md` 内の参照を変更 |
-| 表示順を変更 | `works/index.js` の行を移動 |
-| 一覧から一時的に外す | `works/index.js` の該当行を削除、または `//` でコメントアウト |
+| 表示順を変更 | `archive/index.js` の行を移動 |
+| 一覧から一時的に外す | `archive/index.js` の該当行を削除、または `//` でコメントアウト |
 | 作品を完全に削除 | 掲載リストから外し、作品フォルダーも削除して公開先へ反映 |
 
 フォルダー名が作品IDになります。公開後に改名すると詳細URLも変わるため、通常は名前を変えずに中身を更新してください。

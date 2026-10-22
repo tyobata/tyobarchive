@@ -6,20 +6,20 @@ All five photographs are provided under the [Pexels License](https://www.pexels.
 
 | Local file | Photographer | Source |
 | --- | --- | --- |
-| `../works/stillness/image.jpg`, `site/header.jpg` | Ayşegül Aytören | [A Lake with a Mountain View](https://www.pexels.com/photo/a-lake-with-a-mountain-view-12244873/) |
-| `../works/forms/image.jpg` | Orest Sv | [White Building](https://www.pexels.com/photo/white-building-1821697/) |
-| `../works/tide/image.jpg` | Jess Loiterton | [Ocean Waves near the Shore Under Blue Sky](https://www.pexels.com/photo/ocean-waves-near-the-shore-under-blue-sky-8651029/) |
-| `../works/green/image.jpg`, `site/about.jpg` | Cátia Matos | [Green Leaves](https://www.pexels.com/photo/green-leaves-1072179/) |
-| `../works/city/image.jpg` | vitalina | [Photo of Empty Street Between Buildings](https://www.pexels.com/photo/photo-of-empty-street-between-buildings-3800117/) |
+| `../archive/stillness/image.jpg`, `site/header.jpg` | Ayşegül Aytören | [A Lake with a Mountain View](https://www.pexels.com/photo/a-lake-with-a-mountain-view-12244873/) |
+| `../archive/forms/image.jpg` | Orest Sv | [White Building](https://www.pexels.com/photo/white-building-1821697/) |
+| `../archive/tide/image.jpg` | Jess Loiterton | [Ocean Waves near the Shore Under Blue Sky](https://www.pexels.com/photo/ocean-waves-near-the-shore-under-blue-sky-8651029/) |
+| `../archive/green/image.jpg`, `site/about.jpg` | Cátia Matos | [Green Leaves](https://www.pexels.com/photo/green-leaves-1072179/) |
+| `../archive/city/image.jpg` | vitalina | [Photo of Empty Street Between Buildings](https://www.pexels.com/photo/photo-of-empty-street-between-buildings-3800117/) |
 
 Source and license pages checked on 2026-10-22.
 
 ## Generated motion sample
 
-`../works/motion/video.mp4` and `../works/motion/poster.svg` are original geometric demos created for this template. The video is 6 seconds, 960 × 640, H.264, without audio. No third-party video was downloaded. You can replace or reuse these demo assets with this template.
+`../archive/motion/video.mp4` and `../archive/motion/poster.svg` are original geometric demos created for this template. The video is 6 seconds, 960 × 640, H.264, without audio. No third-party video was downloaded. You can replace or reuse these demo assets with this template.
 
 ## Detail page and tile samples
 
-`../works/motion/thumbnail.svg` and `../works/youtube-demo/thumbnail.svg` are original vector thumbnails created for this template. They can be replaced independently of the detail media.
+`../archive/motion/thumbnail.svg` and `../archive/youtube-demo/thumbnail.svg` are original vector thumbnails created for this template. They can be replaced independently of the detail media.
 
 The YouTube entry links to the [official YouTube embedded player example](https://developers.google.com/youtube/player_parameters), video ID `M7lc1UVf-VE`. The video is embedded remotely, not included as a local asset, and is not the portfolio owner's work.

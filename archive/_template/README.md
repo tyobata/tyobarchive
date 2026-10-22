@@ -1,10 +1,10 @@
 # 新しい作品のひな形
 
-1. このフォルダーを `works/` 内へコピーし、例として `my-new-work` に改名します。
+1. このフォルダーを `archive/` 内へコピーし、例として `my-new-work` に改名します。
 2. 画像・動画をコピー先へ入れます。
 3. `work.js` の作品名・カテゴリ・短い概要・素材ファイル名を編集します。
 4. `content.md` に詳しい本文を書きます。本文が不要なら `work.js` の `content: 'content.md'` 行を削除します。
-5. `works/index.js` の配列に `'my-new-work',` を追加します。
+5. `archive/index.js` の配列に `'my-new-work',` を追加します。
 6. サイト直下で `node scripts/preview.mjs` を実行し、[プレビュー](http://127.0.0.1:4173/)で確認します。
 7. 公開前に `node scripts/check.mjs` を実行し、カテゴリ設定・作品情報・素材・本文ファイルを確認します。
 
@@ -19,8 +19,8 @@
 
 ## カテゴリを指定する
 
-`work.js` の `category` には、`works/categories.js` に登録したIDを指定します。
-新しいカテゴリを使う場合は、まず `works/categories.js` の配列へ追加します。
+`work.js` の `category` には、`archive/categories.js` に登録したIDを指定します。
+新しいカテゴリを使う場合は、まず `archive/categories.js` の配列へ追加します。
 
 ```js
 { id: 'animation', name: 'Animation' },

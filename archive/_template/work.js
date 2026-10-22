@@ -1,4 +1,4 @@
-// このフォルダーをコピーし、works/index.js にコピー先のフォルダー名を追加します。
+// このフォルダーをコピーし、archive/index.js にコピー先のフォルダー名を追加します。
 // 画像・動画のパスは「この work.js と同じフォルダー」を基準に書きます。
 window.registerPortfolioWork({
   title: '作品タイトル',

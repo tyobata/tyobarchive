@@ -14,7 +14,7 @@ const valid = [
 ];
 const categories = validateCategories(valid);
 const work = { title: 'Example', category: 'animation', thumbnail: 'thumb.jpg', youtube: 'https://youtu.be/M7lc1UVf-VE' };
-const normalize = value => normalizeWork(value, 'sample', 'https://example.com/tyobarchive/works/sample/work.js', categories);
+const normalize = value => normalizeWork(value, 'sample', 'https://example.com/tyobarchive/archive/sample/work.js', categories);
 
 test('custom category IDs, names, order and an empty list are supported', () => {
   assert.deepEqual(Array.from(categories, item => ({ ...item })), valid);
@@ -35,11 +35,11 @@ test('registered categories work with either images or videos', () => {
   assert.equal(normalize(work).youtube, work.youtube);
   const photo = normalize({ ...work, category: 'fan-art', youtube: '', image: 'image.jpg' });
   assert.equal(photo.category, 'fan-art');
-  assert.equal(photo.image, 'https://example.com/tyobarchive/works/sample/image.jpg');
+  assert.equal(photo.image, 'https://example.com/tyobarchive/archive/sample/image.jpg');
 });
 
 test('unregistered category IDs identify the settings file', () => {
-  assert.throws(() => normalize({ ...work, category: 'missing' }), /works\/categories\.js/);
+  assert.throws(() => normalize({ ...work, category: 'missing' }), /archive\/categories\.js/);
   assert.throws(() => normalize({ ...work, category: 'all' }), /未登録/);
 });
 

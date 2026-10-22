@@ -8,7 +8,7 @@ const context = vm.createContext({ URL });
 for (const name of ['vendor/markdown-it-15.0.3.min.js', 'markdown.js', 'work-data.js']) {
   vm.runInContext(await readFile(new URL(name, import.meta.url), 'utf8'), context, { filename: name, timeout: 1000 });
 }
-const parse = (source, base = 'https://example.com/tyobarchive/works/sample/content.md') =>
+const parse = (source, base = 'https://example.com/tyobarchive/archive/sample/content.md') =>
   context.portfolioMarkdown.parse(source, base);
 
 test('standard Markdown, Japanese text, tables and fenced code', () => {
@@ -25,12 +25,12 @@ test('relative URLs use the Markdown location, including nested folders and refe
     '![写真](../images/photo%20one.jpg "光")', '',
     '[資料](notes.pdf) [節](#project-title) [連絡](mailto:hello@example.com)', '',
     '![参照][image]', '', '[image]: ./two.png',
-  ].join('\n'), 'https://example.com/tyobarchive/works/sample/text/content.md');
+  ].join('\n'), 'https://example.com/tyobarchive/archive/sample/text/content.md');
   assert.deepEqual(Array.from(images), [
-    'https://example.com/tyobarchive/works/sample/images/photo%20one.jpg',
-    'https://example.com/tyobarchive/works/sample/text/two.png',
+    'https://example.com/tyobarchive/archive/sample/images/photo%20one.jpg',
+    'https://example.com/tyobarchive/archive/sample/text/two.png',
   ]);
-  assert.ok(html.includes('href="https://example.com/tyobarchive/works/sample/text/notes.pdf"'));
+  assert.ok(html.includes('href="https://example.com/tyobarchive/archive/sample/text/notes.pdf"'));
   assert.ok(html.includes('href="#project-title"'));
   assert.ok(html.includes('href="mailto:hello@example.com"'));
 });
@@ -56,15 +56,15 @@ test('raw HTML and active URL schemes never become executable markup', () => {
 
 test('file URLs resolve for the publish checker; empty content is empty', () => {
   assert.equal(parse('').html, '');
-  assert.deepEqual(Array.from(parse('![写真](image.jpg)', 'file:///site/works/sample/content.md').images),
-    ['file:///site/works/sample/image.jpg']);
+  assert.deepEqual(Array.from(parse('![写真](image.jpg)', 'file:///site/archive/sample/content.md').images),
+    ['file:///site/archive/sample/image.jpg']);
 });
 
 test('content remains optional and follows work.js-relative path rules', () => {
   const base = { title: '作品', category: 'photo', thumbnail: 'thumb.jpg', image: 'image.jpg' };
-  const normalize = value => context.portfolioData.normalizeWork(value, 'sample', 'https://example.com/tyobarchive/works/sample/work.js', context.portfolioData.validateCategories([{ id: 'photo', name: 'Photography' }]));
+  const normalize = value => context.portfolioData.normalizeWork(value, 'sample', 'https://example.com/tyobarchive/archive/sample/work.js', context.portfolioData.validateCategories([{ id: 'photo', name: 'Photography' }]));
   assert.equal(normalize(base).content, '');
-  assert.equal(normalize({ ...base, content: 'content.md' }).content, 'https://example.com/tyobarchive/works/sample/content.md');
+  assert.equal(normalize({ ...base, content: 'content.md' }).content, 'https://example.com/tyobarchive/archive/sample/content.md');
   assert.throws(() => normalize({ ...base, content: 1 }), /content/);
   assert.throws(() => normalize({ ...base, content: 'javascript:alert(1)' }), /content/);
 });
