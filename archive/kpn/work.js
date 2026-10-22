@@ -8,7 +8,7 @@ window.registerPortfolioWork({
   "thumbnailAlt": "サムネイル",
   "thumbnailFit": "cover",
   "thumbnailPosition": "50% 50%",
-  "alt": "カルロピノ ファンアート 4",
+  "alt": "カルロピノ ファンアート",
   "youtube": "https://www.youtube.com/shorts/b1ORrmEmOIY",
-  "description": "カルロピノ ファンアート 4",
+  "description": "カルロピノ ファンアート",
 });

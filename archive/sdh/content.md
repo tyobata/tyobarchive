@@ -1,2 +1,1 @@
-### TV
-- 撮影監督
+- TV animation
