@@ -46,7 +46,7 @@ h1, h2, p, dl, dd { margin: 0; }
 .tagline { color: #d0d3d8; font-size: 9px; letter-spacing: .1em; line-height: 1.7; }
 .main-nav { display: flex; flex-shrink: 0; gap: 31px; }
 .main-nav a { font-size: 11px; letter-spacing: .07em; padding-block: 8px; }
-.main-nav a[aria-current] { text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; }
+.main-nav a:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; }
 .work-toolbar, .project-grid { width: min(100%, calc(5 * var(--tile-size) + 112px)); margin-inline: auto; }
 .work-toolbar { display: flex; justify-content: flex-end; align-items: center; }
 .filter-list { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; max-width: 100%; min-width: 0; gap: 8px 22px; }
