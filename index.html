@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="tyobarchive">
+  <meta name="theme-color" content="#0b0c0e">
+  <title>tyobarchive</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="works/categories.js" defer></script>
+  <script src="works/index.js" defer></script>
+  <script src="scripts/work-data.js" defer></script>
+  <script src="scripts/projects.js" defer></script>
+  <script src="scripts/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#work">作品一覧へスキップ</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="identity" href="index.html" aria-label="tyobarchive トップへ"><span class="wordmark">tyobarchive</span><span class="tagline">tyobata's seizon senryaku sites part4.</span></a>
+      <nav class="main-nav" aria-label="メインナビゲーション"><a href="index.html" aria-current="page">Works</a><a href="#about">About</a></nav>
+    </header>
+    <main>
+      <section class="work-section" id="work" aria-labelledby="work-title">
+        <h1 class="sr-only" id="work-title">作品一覧</h1>
+        <div class="work-toolbar">
+          <!-- カテゴリは works/categories.js から自動表示します。 -->
+          <div class="filter-list" role="group" aria-label="作品の種類で絞り込み"></div>
+        </div>
+        <p class="data-error" id="project-data-error" role="alert" hidden></p>
+        <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
+        <div class="project-grid" id="project-grid"></div>
+        <noscript><p class="empty-note">作品一覧の表示にはJavaScriptを有効にしてください。</p></noscript>
+      </section>
+      <section class="about-section" id="about" aria-labelledby="about-title">
+        <div class="about-inner">
+          <img class="about-image" src="assets/site/about.png" alt="selfimage" width="360" height="360" loading="lazy" decoding="async">
+          <div class="about-content">
+            <h2 id="about-title">About this archive</h2>
+            <p>社内調整ばかりで仕事ができなくなって久しいものの、<br>せめて魂だけはアニメ撮影マンでありたいと祈っている。</p>
+            <p class="sample-note">思い立った時に作った色んな何かを載せています。</p>
+          </div>
+          <nav class="related-sites" aria-labelledby="related-sites-title">
+            <h3 id="related-sites-title">Related sites</h3>
+            <!-- 関連サイト: 各リンクの href とサイト名を変更。不要な li は削除できます。 -->
+            <ul class="related-links">
+              <li><a href="https://x.com/tyobata"><span>X</span><span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://www.instagram.com/tyobata/"><span>Instagram</span><span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://tyobata.gumroad.com/"><span>GUMROAD</span><span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://www.pixiv.net/users/42072837"><span>pixiv</span><span aria-hidden="true">↗</span></a></li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><span class="copyright">Ⓒ <span id="current-year">2026</span> tyobarchive</span><a href="#">Back to top ↑</a></footer>
+  </div>
+</body>
+</html>
