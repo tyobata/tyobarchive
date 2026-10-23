@@ -34,7 +34,7 @@ tyobarchive/
 │  └─ …                       ほかの作品フォルダー
 ├─ assets/
 │  ├─ site/
-│  │  ├─ header.png            ヘッダー背景
+│  │  ├─ header.jpg            ヘッダー背景
 │  │  └─ about.png             About画像
 │  ├─ favicon.svg              ブラウザーのアイコン
 │  └─ CREDITS.md               同梱デモ素材の出典
@@ -274,10 +274,28 @@ node scripts/test-categories.mjs
 
 ## サイト共通部分を更新する
 
-- ヘッダー背景：`assets/site/header.png` を差し替えます。別名を使う場合は `styles.css` の `--header-image` も変更します。`--header-image-position` で切り取り位置、`--header-image: none;` で背景なしにできます。
+- ヘッダー背景：`assets/site/header.jpg` を差し替えます。別名を使う場合は `styles.css` の `--header-image` も変更します。`--header-image-position` で切り取り位置、`--header-image: none;` で背景なしにできます。
 - About画像：`assets/site/about.png` を差し替えます。別名や説明文を使う場合は `index.html` の `class="about-image"` の `src`・`alt` を変更します。
 - Aboutの文章・関連サイト4件：`index.html` の `id="about"` 内を編集します。関連サイトは `href` と表示名を変更します。
 - サイト名・ヘッダー文言：`index.html` と `work.html` を編集します。ブラウザーの詳細ページタイトルは `scripts/detail.js` にも設定があります。
+
+## タイトル横のロゴを設定する
+
+トップと作品詳細の共通ヘッダーに、タイトル文字の左側へロゴ画像を表示します。初期設定は既存の `assets/favicon.svg` です。
+
+1. ロゴ画像を `assets/site/` に置きます。例：`assets/site/logo.png`。PNG・SVG・WebP・JPEGなど、ブラウザーで表示できる画像を使えます。
+2. `styles.css` 上部の `:root` にある設定を変更します。HTMLの変更は不要です。
+
+```css
+--site-logo-image: url("assets/site/logo.png");
+--site-logo-size: 1.1em;
+--site-logo-display: block;
+```
+
+`--site-logo-size` は正方形の表示枠の大きさです。初期値の `1.1em` はタイトルの文字サイズに連動し、スマートフォンでも自動で小さくなります。`40px` などの指定もできます。画像は縦横比を保って枠内に収まり、切り取られません。余白の少ない、背景が透明な正方形のロゴがおすすめです。
+
+ロゴを非表示にする場合は `--site-logo-display: none;` にします。画像と文字の間の余白も消えます。
+画像を差し替えたら、その画像ファイルと `styles.css` を一緒にコミットしてください。ロゴ専用画像の指定は、ブラウザーのファビコンには影響しません。
 
 ## 表示の設定
 
