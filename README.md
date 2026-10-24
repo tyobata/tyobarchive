@@ -288,12 +288,12 @@ node scripts/test-categories.mjs
 
 ```css
 --site-logo-image: url("assets/site/logo.png");
---site-logo-size: 92px;
---site-logo-mobile-size: 80px;
+--site-logo-size: 59.8px;
+--site-logo-mobile-size: 52px;
 --site-logo-display: block;
 ```
 
-`--site-logo-size` はPCでの正方形の表示枠（初期値92px）、`--site-logo-mobile-size` は幅560px以下での表示枠（初期値80px）です。サイト名と説明文は、2行合わせた高さがロゴより小さくなるようにしています。画像は縦横比を保って枠内に収まり、切り取られません。余白の少ない、背景が透明な正方形のロゴがおすすめです。
+`--site-logo-size` はPCでの正方形の表示枠（初期値59.8px）、`--site-logo-mobile-size` は幅560px以下での表示枠（初期値52px）です。サイト名と説明文は、2行合わせた高さがロゴより小さくなるようにしています。画像は縦横比を保って枠内に収まり、切り取られません。余白の少ない、背景が透明な正方形のロゴがおすすめです。
 
 ロゴを非表示にする場合は `--site-logo-display: none;` にします。サイト名とナビゲーションは引き続き表示されます。
 画像を差し替えたら、その画像ファイルと `styles.css` を一緒にコミットしてください。ロゴ専用画像の指定は、ブラウザーのファビコンには影響しません。

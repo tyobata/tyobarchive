@@ -19,8 +19,8 @@
   --header-image-position: center 48%;
   /* ヘッダー中央のロゴ。画像パス・PC/スマホの大きさ・表示を設定します。 */
   --site-logo-image: url("assets/site/white_F.svg");
-  --site-logo-size: 92px;
-  --site-logo-mobile-size: 80px;
+  --site-logo-size: 59.8px;
+  --site-logo-mobile-size: 52px;
   --site-logo-display: block;
   --font: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
 }
