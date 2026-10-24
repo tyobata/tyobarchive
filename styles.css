@@ -17,9 +17,10 @@
   /* ヘッダー背景。画像なしにする場合は none に変更します。 */
   --header-image: url("assets/site/header.jpg");
   --header-image-position: center 48%;
-  /* タイトル横のロゴ。画像パス・大きさ・表示（block / none）を設定します。 */
-  --site-logo-image: url("assets/favicon.svg");
-  --site-logo-size: 1.1em;
+  /* ヘッダー中央のロゴ。画像パス・PC/スマホの大きさ・表示を設定します。 */
+  --site-logo-image: url("assets/site/white_F.svg");
+  --site-logo-size: 46px;
+  --site-logo-mobile-size: 40px;
   --site-logo-display: block;
   --font: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
 }
@@ -44,12 +45,12 @@ h1, h2, p, dl, dd { margin: 0; }
 .skip-link { position: fixed; z-index: 10; top: 10px; left: 10px; background: var(--ink); color: var(--paper); padding: 12px 18px; transform: translateY(-160%); }
 .skip-link:focus { transform: none; }
 .skip-link:hover { color: var(--paper); }
-.site-header { display: flex; align-items: center; justify-content: space-between; gap: 30px; min-height: 124px; padding: 22px 36px; margin-bottom: 32px; background-color: var(--surface); background-image: linear-gradient(90deg, rgb(11 12 14 / 72%), rgb(11 12 14 / 48%)), var(--header-image); background-size: cover; background-position: var(--header-image-position); }
-.identity { display: flex; flex-direction: column; gap: 8px; }
-.wordmark { display: flex; align-items: center; gap: .35em; font-size: clamp(30px, 3.4vw, 32px); font-weight: 500; letter-spacing: .055em; line-height: 1.1; }
-.site-logo { display: var(--site-logo-display); flex: none; width: var(--site-logo-size); height: var(--site-logo-size); background-image: var(--site-logo-image); background-position: center; background-size: contain; background-repeat: no-repeat; }
-.tagline { color: #d0d3d8; font-size: 9px; letter-spacing: .1em; line-height: 1.7; }
-.main-nav { display: flex; flex-shrink: 0; gap: 31px; }
+.site-header { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); grid-template-areas: "identity logo navigation"; align-items: center; gap: 24px; min-height: 124px; padding: 22px 36px; margin-bottom: 32px; background-color: var(--surface); background-image: linear-gradient(90deg, rgb(11 12 14 / 72%), rgb(11 12 14 / 48%)), var(--header-image); background-size: cover; background-position: var(--header-image-position); }
+.identity { grid-area: identity; justify-self: start; display: flex; flex-direction: column; gap: 4px; min-width: 0; max-width: 100%; }
+.wordmark { font-size: 24px; font-weight: 500; letter-spacing: .055em; line-height: 1.1; }
+.site-logo { grid-area: logo; justify-self: center; display: var(--site-logo-display); width: var(--site-logo-size); height: var(--site-logo-size); background-image: var(--site-logo-image); background-position: center; background-size: contain; background-repeat: no-repeat; }
+.tagline { color: #d0d3d8; font-size: 8px; letter-spacing: .1em; line-height: 1.5; }
+.main-nav { grid-area: navigation; justify-self: end; display: flex; gap: 31px; }
 .main-nav a { font-size: 11px; letter-spacing: .07em; padding-block: 8px; }
 .main-nav a:is(:hover, :focus-visible) { text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; }
 .work-toolbar, .project-grid { width: min(100%, calc(5 * var(--tile-size) + 112px)); margin-inline: auto; }
@@ -180,11 +181,12 @@ h1, h2, p, dl, dd { margin: 0; }
   :root { --tile-size: 128px; --reflection-height: 30px; --tile-caption-gap: 13px; }
   html { scroll-padding-top: 20px; }
   .site-shell { width: calc(100% - 40px); }
-  .site-header { flex-direction: column; align-items: flex-start; justify-content: center; min-height: 112px; padding: 16px 20px; gap: 10px; margin-bottom: 28px; }
-  .identity { gap: 6px; }
-  .wordmark { font-size: clamp(24px, 7vw, 28px); letter-spacing: .045em; }
+  .site-header { grid-template-columns: minmax(0, 1fr); grid-template-areas: "logo" "identity" "navigation"; min-height: 112px; padding: 16px 20px; gap: 10px; margin-bottom: 28px; }
+  .site-logo { width: var(--site-logo-mobile-size); height: var(--site-logo-mobile-size); }
+  .identity { gap: 3px; }
+  .wordmark { font-size: 20px; letter-spacing: .045em; }
   .tagline { font-size: 8px; letter-spacing: .025em; }
-  .main-nav { gap: 24px; }
+  .main-nav { justify-self: start; gap: 24px; }
   .main-nav a { font-size: 10px; padding: 4px 0; }
   .work-toolbar { justify-content: flex-start; }
   .filter-list { justify-content: flex-start; gap: 8px 22px; }
